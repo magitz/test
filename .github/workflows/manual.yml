@@ -23,7 +23,7 @@ jobs:
       # Create the Animal.md file
       - name: Add animal file
         run: |
-          mkdir Animal_functionality
+          mkdir -p Animal_functionality
           echo "# Information About the Animals at Home" > Animal_functionality/Animal.md
           
       - name: setup git config
