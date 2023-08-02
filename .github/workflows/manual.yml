@@ -42,7 +42,7 @@ jobs:
           
       - name: Create Cat branch and add cat info 
         run: |
-          git -b checkout cats
+          git checkout -b cats
           echo "" >> Animal_functionality/Animal.md
           echo "## A Cat" >> Animal_functionality/Animal.md
           echo "" >> Animal_functionality/Animal.md
