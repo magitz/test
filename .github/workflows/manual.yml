@@ -24,8 +24,14 @@ jobs:
       - name: add_animal_file
         run: |
           mkdir Animal_functionality
-          echo "# Information About the Animals at Home\n\n# A Dog\n\nIsn't this dog the cutest!?!\
-          \n\n![A cartoon of a cute dog](dog.png)\n\nIts name is Fido!\n" > Animal_functionality/Animal.md
+          echo "# Information About the Animals at Home" > Animal_functionality/Animal.md
+          echo "" >> Animal_functionality/Animal.md
+          echo "## A Dog" >> Animal_functionality/Animal.md
+          echo "" >> Animal_functionality/Animal.md
+          echo "Isn't this dog the cutest!?!" >> Animal_functionality/Animal.md
+          echo "![A cartoon of a cute dog](dog.png)" >> Animal_functionality/Animal.md
+          echo "Its name is Fido!" >> Animal_functionality/Animal.md
+          echo "" >> Animal_functionality/Animal.md
       
       - name: setup git config
         run: |
