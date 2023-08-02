@@ -7,10 +7,14 @@ name: Manual workflow
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
+  
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:  
   make_commits: 
     runs-on: ubuntu-latest
+    
     steps:
       # Checkout the branch
       - name: checkout
@@ -27,11 +31,13 @@ jobs:
         run: |
           # setup the username and email. I tend to use 'GitHub Actions Bot' with no email by default
           git config user.name "GitHub Actions Bot"
-          git config user.email "magitz@ufl.edu"
-          
+          git config user.email "magitz@users.noreply.github.com"
+
       - name: commit
         run: |
           # Stage the file, commit and push
           git add Animal_functionality/Animal.md
           git commit -m "Adding Animal.md"
           git push origin main
+          
+          
