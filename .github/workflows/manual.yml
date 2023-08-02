@@ -21,25 +21,18 @@ jobs:
         uses: actions/checkout@v2
       
       # Create the Animal.md file
-      - name: add_animal_file
+      - name: Add animal file
         run: |
           mkdir Animal_functionality
           echo "# Information About the Animals at Home" > Animal_functionality/Animal.md
-          echo "" >> Animal_functionality/Animal.md
-          echo "## A Dog" >> Animal_functionality/Animal.md
-          echo "" >> Animal_functionality/Animal.md
-          echo "Isn't this dog the cutest!?!" >> Animal_functionality/Animal.md
-          echo "![A cartoon of a cute dog](dog.png)" >> Animal_functionality/Animal.md
-          echo "Its name is Fido!" >> Animal_functionality/Animal.md
-          echo "" >> Animal_functionality/Animal.md
-      
+          
       - name: setup git config
         run: |
           # setup the username and email. I tend to use 'GitHub Actions Bot' with no email by default
           git config user.name "GitHub Actions Bot"
           git config user.email "magitz@users.noreply.github.com"
 
-      - name: commit
+      - name: commit 1
         run: |
           # Stage the file, commit and push
           git add Animal_functionality/Animal.md
@@ -47,3 +40,42 @@ jobs:
           git push origin main
           
           
+      - name: Create Cat branch and add cat info 
+        run: |
+          git -b checkout cats
+          echo "" >> Animal_functionality/Animal.md
+          echo "## A Cat" >> Animal_functionality/Animal.md
+          echo "" >> Animal_functionality/Animal.md
+          echo "Here's the cute and cuddly cat the rules the home!" >> Animal_functionality/Animal.md
+          echo "" >> Animal_functionality/Animal.md
+          echo "![A cartoon of a cute cat](../cat.png)" >> Animal_functionality/Animal.md
+          echo "" >> Animal_functionality/Animal.md
+          echo "Its name is Socks!" >> Animal_functionality/Animal.md
+          echo "" >> Animal_functionality/Animal.md
+
+      - name: commit 2
+        run: |
+          # Stage the file, commit and push
+          git add Animal_functionality/Animal.md
+          git commit -m "Adding Cat info"
+          git push --set-upstream origin cats
+          
+      - name: Checkout main and add dog info
+        run: |
+          git checkout main
+          echo "" >> Animal_functionality/Animal.md
+          echo "## A Dog" >> Animal_functionality/Animal.md
+          echo "" >> Animal_functionality/Animal.md
+          echo "Isn't this dog the cutest!?!" >> Animal_functionality/Animal.md
+          echo "" >> Animal_functionality/Animal.md
+          echo "![A cartoon of a cute dog](../dog.png)" >> Animal_functionality/Animal.md
+          echo "" >> Animal_functionality/Animal.md
+          echo "Its name is Fido!" >> Animal_functionality/Animal.md
+          echo "" >> Animal_functionality/Animal.md
+      
+      - name: commit 3
+        run: |
+          # Stage the file, commit and push
+          git add Animal_functionality/Animal.md
+          git commit -m "Adding Dog info"
+          git push
