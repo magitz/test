@@ -21,3 +21,5 @@ You should already have the Canvas quiz that accompanies this exercise opened, i
 The first step was using GitHub Classroom to accept this assignment.
 
 Now you can clone this onto your computer to work through the quiz and answer the questions.
+
+## Add more info
