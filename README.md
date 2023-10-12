@@ -1,3 +1,5 @@
+# Adding info that was needed
+
 # Git Activity
 
 This is a template repo for the 2nd git activity in module 1 of the Git and GitHub Workshop
